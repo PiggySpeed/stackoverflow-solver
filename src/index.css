@@ -1,0 +1,41 @@
+
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+
+.active {
+  color: green;
+}
+.app-container {
+  width: 100%;
+  height: 100%;
+  background-color: #40a070;
+}
+.navigation-container {
+  width: 100%;
+  height: 100%;
+  background-color: #40a070;
+}
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #0086b3;
+}
+.content-container {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f8f8f8;
+}

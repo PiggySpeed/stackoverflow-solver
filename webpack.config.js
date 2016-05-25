@@ -1,11 +1,10 @@
 var webpack = require('webpack');
-var path = require('path');
 
 module.exports = {
   devtool: 'source-map',
   debug: true,
   entry: {
-    app: ['webpack/hot/dev-server', './website/index.js']
+    app: ['webpack/hot/dev-server', './src/index.jsx']
   },
   output: {
     filename: 'bundle.js',
@@ -14,7 +13,7 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    contentBase: "./website",
+    contentBase: "./src",
     port: 8080
   },
   module: {
@@ -25,13 +24,10 @@ module.exports = {
         loader: 'babel'
       },
       {
-        test: /\.less$/,
+        test: /\.css$/,
         exclude: /node_modules/,
-        loader: 'style!css!less'
+        loader: "style-loader!css-loader"
       }
     ]
-  },
-  resolve: {
-    root: path.resolve('./website')
   }
 };
