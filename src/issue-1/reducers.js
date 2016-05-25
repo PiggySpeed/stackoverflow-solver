@@ -1,7 +1,6 @@
 import * as types from './actions.js';
 
 const initialState = {
-  ELEMENT
 };
 
 const MainStore = (state = initialState, action) => {

@@ -21,18 +21,18 @@ class App extends React.Component {
     super(props)
   }
   render () {
-    return (
-      <Provider store={store}>
-        <Router history={hashHistory}>
-          <Route path='/' component={Navigation}>
-            <IndexRoute component={Home}/>
-            <Route path="/about" component={About}/>
-            <Route path="/contact" component={Contact}/>
-          </Route>
-        </Router>
-      </Provider>
-    )
+    return <h1>helloworld</h1>
   }
 }
 
 ReactDOM.render(<App/>, document.getElementById('app'));
+
+//<Provider store={store}>
+//  <Router history={hashHistory}>
+//    <Route path='/' component={Navigation}>
+//      <IndexRoute component={Home}/>
+//      <Route path="/about" component={About}/>
+//      <Route path="/contact" component={Contact}/>
+//    </Route>
+//  </Router>
+//</Provider>
