@@ -1,27 +1,30 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import  { store, history } from './issue-1/store';
 
 import Navigation from './issue-1/navigation.jsx';
-import MainStore from './issue-1/reducers.js';
 import Home from './issue-1/home.jsx';
 import About from './issue-1/about.jsx';
 import Contact from './issue-1/contact.jsx';
-
-const store = createStore(
-  combineReducers({
-    MainStore
-  })
-);
 
 class App extends React.Component {
   constructor(props) {
     super(props)
   }
   render () {
-    return <h1>helloworld</h1>
+    return (
+      <Provider store={store}>
+        <Router history={history}>
+          <Route path='/' component={Navigation}>
+            <IndexRoute component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/contact" component={Contact}/>
+          </Route>
+        </Router>
+      </Provider>
+    )
   }
 }
 

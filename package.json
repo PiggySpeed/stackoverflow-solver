@@ -15,6 +15,7 @@
     "react-modal": "^1.2.1",
     "react-redux": "^4.4.3",
     "react-router": "^2.1.1",
+    "react-router-redux": "^4.0.4",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.4.0"
   },
@@ -29,6 +30,9 @@
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.16.0",
     "path": "^0.12.7",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1",

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Router, Route, hashHistory, IndexRoute, Link, IndexLink } from 'react-router';
 import { connect } from 'react-redux';
 import Home from './home.jsx';
-import {onRadioChange} from './actions.js'
+import {onRadioChange} from './actions.js';
 
 class NavLink extends React.Component{
   render(){
@@ -19,14 +19,10 @@ class NavigationContainer extends React.Component {
       <div className="navigation-container">
         <div className="navbar">
           <h4>NAVIGATION</h4>
-          <form>
-            <input type="radio" name="nav" value="home" checked/> Home<br/>
-            <input type="radio" name="nav" value="about"/> About<br/>
-            <input type="radio" name="nav" value="contact"/> Contact
-          </form>
           <IndexLink to="/" activeClassName="active">Home</IndexLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
+          <button onClick={console.log(this.props.store)}>Print Store</button>
         </div>
         <div className="content-container">
           {this.props.children || <Home/>}
@@ -38,13 +34,16 @@ class NavigationContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-
+    store: state
   }
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     onChange: () => {
       dispatch(onRadioChange())
+    },
+    onClick: () => {
+      dispatch(onGetStore())
     }
   }
 };
