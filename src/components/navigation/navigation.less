@@ -1,0 +1,26 @@
+@import '../../globalstyles/index';
+
+.navigation-container {
+  background-color: @primary-color;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 200px;
+}
+.navigation-button {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  -o-transition:.25s;
+  -moz-transition:.25s;
+  -webkit-transition:.25s;
+  transition:.25s;
+  &:hover { background-color: @primary-color-light}
+}
+.navigation-button-text {
+  color: @standard-white;
+}

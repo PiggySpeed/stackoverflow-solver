@@ -46,7 +46,19 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-node_modules
-
-# Files for Webstorm IDE
+# ignore compiled LESS files
+*.css
+.swp
 .idea
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+*.DS_Store
+static/
+build/
+.tmp/
+webpack-assets.json
+node_modules

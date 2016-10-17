@@ -1,0 +1,385 @@
+/* Global Styling */
+
+// Global Style Resets
+// ------------------------------------------
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+a {
+  outline: 0;
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+img {
+  image-orientation: from-image;
+}
+#content {
+  height: 100%;
+  width: 100%;
+}
+
+// Color Palette
+// ------------------------------------------
+@primary-color:                     #597ADE;
+@primary-color-light:               #A4C1FF;
+@primary-color-dark:                #3B43A1;
+
+@secondary-color:                   #7f7f7f;
+@secondary-color-light:             #C3C3C3;
+@secondary-color-dark:              #424242;
+
+@accent-color:                      #E87FFF;
+
+@standard-white:                    #ffffff;
+@standard-white-dark:               #f9f9f9;
+@standard-white-darker:             #f5f5f5;
+
+@background-color:                  @standard-white-dark;
+
+@font-color-primary:                @secondary-color-dark;
+@font-color-secondary:              @secondary-color;
+@font-color-inactive:               @secondary-color-light;
+@divider-color:                     @secondary-color-light;
+
+// Fonts
+// ------------------------------------------
+@display-font-family: 'Roboto', serif;
+@header-font-family: 'Roboto', serif;
+@body-font-family: 'Roboto', sans-serif;
+@body-font-family-sans: 'Roboto', sans-serif;
+@body-font-family-sans-bold: 'Roboto', sans-serif;
+
+@font-xxxl:                     60pt;
+@font-xxl:                      48pt;
+@font-xl:                       36pt;
+@font-l:                        24pt; // Header
+
+@font-ml:                       20pt; // Subheader
+@font-m:                        18pt; // Subheader
+@font-ms:                       16pt; // Paragraph
+
+@font-s:                        12pt; // Captions
+@font-xs:                       8pt;  // Smallest Header
+@font-xxs:                      6pt;
+@font-xxxs:                     4pt;
+
+@text-body-letter-spacing:      0.03em;
+@text-body-leading-spacing:     1.6em;
+
+// Margins and Padding
+// ------------------------------------------
+
+@pad-header:                    8px 12px;
+@pad-body:                      8px 12px;
+@border-radius-button:          5px;
+
+// Section Styles
+// ------------------------------------------
+
+h1, h2, h3, h4, h5, h6 { font-family: @header-font-family }
+
+h1 { font-size: @font-l;    color: @font-color-primary; }
+h2 { font-size: @font-ml;   color: @font-color-secondary; }
+h3 { font-size: @font-m;    color: @font-color-secondary; }
+h4 { font-size: @font-ms;   color: @font-color-secondary; }
+h5 { font-size: @font-s;    color: @font-color-secondary; }
+h6 { font-size: @font-xs;   color: @font-color-secondary; }
+
+p {
+  font-size: @font-s;
+  font-family: @body-font-family-sans;
+  color: @font-color-secondary;
+  line-height: @text-body-leading-spacing;
+}
+
+ul {
+  display: block;
+  list-style-type: square;
+  margin: 1em 0;
+  padding-left: 40px;
+}
+ol {
+  font-size: @font-s;
+  font-family: @body-font-family;
+  color: @font-color-secondary;
+  line-height: @text-body-leading-spacing;
+  display: block;
+  padding-left: 40px;
+}
+header {
+}
+section header {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+article {
+  padding: @pad-body;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid @font-color-secondary;
+  margin: 2.5px 0;
+  padding: 0;
+}
+
+
+// Page Layouts
+// ------------------------------------------
+.full-size {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.full-size-column {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
+
+// Metrics
+// ------------------------------------------
+@navbar-height:               50px;
+@footer-height:               150px;
+@content-top-margin:          50px;
+@content-bottom-margin:       100px;
+@footer-padding:              12px;
+@header-height:               150px;
+
+// Button Styles
+// ------------------------------------------
+.flat-button {
+  padding: 4px 8px;
+  margin: 4px;
+  background-color: @standard-white;
+  border: 1px solid @primary-color-light;
+  color: @primary-color;
+  font-family: @body-font-family-sans;
+  font-size: @font-ms;
+  &:hover {
+    color: @primary-color-dark;
+    border: 1px solid @primary-color-dark;
+  }
+  &:active {
+    background-color: @font-color-inactive;
+    color: @primary-color-dark;
+    border: 1px solid @primary-color-dark;
+  }
+}
+.raised-button {
+  padding: 4px 8px;
+  margin: 4px;
+  background-color: @primary-color;
+  border-color: @primary-color;
+  border-top: none;
+  border-left: none;
+  color: @standard-white;
+  font-family: @body-font-family-sans;
+  font-size: @font-ms;
+  &:hover {
+    background-color: @secondary-color;
+    color: @standard-white-dark;
+  }
+  &:active {
+    border-top: 1px inset @primary-color-dark;
+    border-left: 1px inset @primary-color-dark;
+    border-color: @secondary-color;
+  }
+}
+.ghost-button {
+  padding: 4px 8px;
+  margin: 4px;
+  background-color: transparent;
+  border: none;
+  color: @primary-color-light;
+  font-family: @body-font-family-sans;
+  font-size: @font-ms;
+  &:hover {
+    color: @secondary-color;
+  }
+  &:active {
+    color: @primary-color-dark;
+  }
+}
+// Dividers
+// ------------------------------------------
+.vertical-divider {
+  height: 100%;
+  border: 1px solid @divider-color;
+  margin: 0 2.5px;
+}
+.vertical-space {
+  height: 100%;
+  margin: 0 2.5px;
+}
+
+// CSS Animations
+// ------------------------------------------
+.fade-in {
+  -moz-animation-name: easePage;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-out;
+  -moz-animation-duration: 0.5s;
+
+  -webkit-animation-name: easePage;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-duration: 0.5s;
+
+  animation-name: easePage;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 0.5s;
+}
+@-moz-keyframes easePage {
+  0% {
+    -moz-transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    -moz-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes easePage {
+  0% {
+    -webkit-transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes easePage {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.nudge-left {
+  -moz-animation-name: nudgeLeft;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-out;
+  -moz-animation-duration: 0.5s;
+
+  -webkit-animation-name: easePage;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-duration: 0.5s;
+
+  animation-name: easePage;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 0.5s;
+}
+@-moz-keyframes nudgeLeft {
+  0% {
+    -moz-transform: translateX(0px);
+  }
+  100% {
+    -moz-transform: translateX(5px);
+  }
+}
+@-webkit-keyframes nudgeLeft {
+  0% {
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    -webkit-transform: translateX(5px);
+  }
+}
+@keyframes nudgeLeft {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+.fade-in-opacity {
+  -moz-animation-name: fadeInOpacity;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-out;
+  -moz-animation-duration: 1.5s;
+
+  -webkit-animation-name: fadeInOpacity;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-duration: 1.5s;
+
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 1.5s;
+}
+@-moz-keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.delay5 {
+  -moz-animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.delay10 {
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.delay15 {
+  -moz-animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+.delay20 {
+  -moz-animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
