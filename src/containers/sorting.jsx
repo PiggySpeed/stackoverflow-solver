@@ -4,12 +4,19 @@ import { connect } from 'react-redux';
 
 import SectionWindow from '../components/sectionwindow/sectionwindow.jsx';
 
+
+
+
+
+
+
 const SortingContainer = ({ }) => {
   return (
     <div className="full-size-column">
-      <SectionWindow />
-      <SectionWindow />
-      <SectionWindow />
+      <SectionWindow >
+
+
+      </SectionWindow>
     </div>
   )
 };
