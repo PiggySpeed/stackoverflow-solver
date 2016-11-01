@@ -1,7 +1,31 @@
 
 
 
+// Sorting
+// ------------------------------------------
 
+const arr3 = [14, 7, 2, 9, 4, 5, 6, 10, 7, 2, 9, 4, 7, 3, 4, 1, 0, 6, 4, 9, 4, 4, 4, 4, 12];
+
+const quickSort = (arr) => {
+  if(arr.length < 2){
+    return arr
+  }
+  else {
+    var array = arr.slice();
+
+    var middleIndex = Math.ceil(array.length/2);
+    var middle = array.splice( middleIndex, 1 );
+
+    var arrLess = array.filter( item => item < middle[0] );
+    var arrMore = array.filter( item => item >= middle[0] );
+
+    console.log('middle is ', middle, ' arrLess is ', arrLess, ' arrMore is ', arrMore);
+    return Array.prototype.concat( quickSort(arrLess), middle, quickSort(arrMore));
+  }
+};
+//var quickSortResult = quickSort(arr3);
+//console.log(quickSortResult);
+//console.log("length of quickSort: ", quickSortResult.length, " length of original ", arr3.length);
 
 
 // Array Manipulation
