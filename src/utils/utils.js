@@ -4,6 +4,7 @@
 // Sorting
 // ------------------------------------------
 
+/** QuickSort **/
 const arr3 = [14, 7, 2, 9, 4, 5, 6, 10, 7, 2, 9, 4, 7, 3, 4, 1, 0, 6, 4, 9, 4, 4, 4, 4, 12];
 
 const quickSort = (arr) => {
@@ -13,8 +14,7 @@ const quickSort = (arr) => {
   else {
     var array = arr.slice();
 
-    var middleIndex = Math.ceil(array.length/2);
-    var middle = array.splice( middleIndex, 1 );
+    var middle = array.splice( 0, 1 );
 
     var arrLess = array.filter( item => item < middle[0] );
     var arrMore = array.filter( item => item >= middle[0] );
