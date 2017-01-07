@@ -7,14 +7,14 @@ import store from './configureStore';
 
 import Main from '../containers/main.jsx';
 import Home from '../containers/home.jsx';
-import Sorting from '../containers/sorting.jsx';
+import Lists from '../containers/lists.jsx';
 
 const routes = (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={Main}>
         <IndexRoute component={Home}/>
-        <Route path="/sort" component={Sorting}/>
+        <Route path="/lists" component={Lists}/>
       </Route>
     </Router>
   </Provider>

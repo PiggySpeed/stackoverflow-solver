@@ -1,16 +1,27 @@
-var x = 0;
 
 function *bear(m) {
-  var t = m * (yield 'hellooo');
-  //return t;
+  var x = 0;
+  while(true){
+    yield m[x];
+    x = (x + 1) % m.length;
+  }
 }
 
-function boy() {
-  x++
-}
+const arr = ['awfe', 'tree', 'bear', 'pigg', 'flag', 'dog', 'cat'];
 
-var it = bear(2);
-var res1 = it.next();
-console.log(res1.value);
-var res = it.next(2);
-console.log(res);
+var it = bear(arr);
+
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+
+//for(var x of arr){
+//  console.log(x);
+//}

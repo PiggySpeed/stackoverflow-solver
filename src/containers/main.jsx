@@ -14,7 +14,7 @@ class MainContainer extends Component {
       <div className="full-size">
         <Navigation>
           <NavigationButton name="Home" to="/" />
-          <NavigationButton name="#1: Sorting" to="/sort" />
+          <NavigationButton name="#1: Lists" to="/lists" />
         </Navigation>
         <ContentWindow>
           {this.props.children}
