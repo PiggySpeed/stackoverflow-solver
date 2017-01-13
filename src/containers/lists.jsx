@@ -31,6 +31,8 @@ class ListContainer extends Component {
     this.setState({values: newValues})
   }
   render() {
+    const tree = 'tree';
+
     return (
       <SectionWindow>
         <div style={{display:'flex', flexFlow:'column'}}>
