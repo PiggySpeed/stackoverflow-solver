@@ -1,5 +1,13 @@
 'use strict';
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes }from 'react';
+
+const styles = {
+  container: {
+    display:'flex',
+    width: '100%',
+    justifyContent: 'space-between'
+  }
+};
 
 export default class ListEntry extends Component {
   constructor(props) {
@@ -15,14 +23,14 @@ export default class ListEntry extends Component {
   }
   render() {
     return(
-      <div style={{display:'flex'}}>
+      <div style={styles.container}>
 
-        <input
-          id={this.props.entryID}
-          defaultValue={this.props.value}
-          rows={1}
-          onBlur={this.handleBlur}
-        />
+        <h5
+          style={{width: '100%', backgroundColor: this.props.selected ? '#C3C3C3' : 'transparent'}}
+          onClick={this.props.onClick}
+        >
+          {this.props.value}
+        </h5>
 
         <button type='button' onClick={this.handleDeleteClick}>X</button>
 
@@ -31,8 +39,9 @@ export default class ListEntry extends Component {
   }
 }
 ListEntry.propTypes = {
+  onClick: PropTypes.func.isRequired,
   entryID: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onBlur: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired,
   onDelete: PropTypes.func.isRequired
 };
