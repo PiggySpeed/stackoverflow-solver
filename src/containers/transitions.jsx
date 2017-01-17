@@ -4,22 +4,17 @@ import { connect } from 'react-redux';
 
 import Navigation, { NavigationButton } from '../components/navigation/navigation.jsx';
 import ContentWindow from '../components/contentwindow/contentwindow.jsx';
+import {TransitionsNav} from '../components';
 
-class MainContainer extends Component {
-  static propTypes = {
-
-  };
+class TransitionsContainer extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return(
       <div className="full-size">
-        <Navigation>
-          <NavigationButton name="Home" to="/" />
-          <NavigationButton name="#1: Lists" to="/lists" />
-          <NavigationButton name="#2: Transitions" to="/transitions" />
-        </Navigation>
-        <ContentWindow>
-          {this.props.children}
-        </ContentWindow>
+        <TransitionsNav />
+        {this.props.children}
       </div>
     );
   }
@@ -31,5 +26,5 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return { }
 };
-const Main = connect(mapStateToProps, mapDispatchToProps)(MainContainer);
-export default Main;
+const Transitions = connect(mapStateToProps, mapDispatchToProps)(TransitionsContainer);
+export default Transitions;
