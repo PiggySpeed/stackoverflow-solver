@@ -2,19 +2,22 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import Navigation, { NavigationButton } from '../components/navigation/navigation.jsx';
-import ContentWindow from '../components/contentwindow/contentwindow.jsx';
-import {TransitionsNav} from '../components';
+import { TransitionsNav, SlideTransition } from '../components';
 
 class TransitionsContainer extends Component {
   constructor(props) {
     super(props);
   }
   render() {
+    const { children, location: { pathname }} = this.props;
+
     return(
-      <div className="full-size">
+      <div style={{display: 'flex', flex: 1}}>
         <TransitionsNav />
-        {this.props.children}
+
+        <SlideTransition pathname={pathname}>
+          {children}
+        </SlideTransition>
       </div>
     );
   }
