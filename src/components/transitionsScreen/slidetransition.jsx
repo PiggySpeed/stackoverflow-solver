@@ -52,7 +52,7 @@ export default class SlideTransition extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
         >
-          {React.cloneElement(children || <h1>Error</h1>, { key: pathname })}
+          {React.cloneElement(children, { key: pathname })}
         </ReactCSSTransitionGroup>
       </div>
     )

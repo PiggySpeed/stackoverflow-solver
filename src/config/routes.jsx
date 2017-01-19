@@ -2,19 +2,23 @@
 import React, {Component} from 'react';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 import store from './configureStore';
-import Main from '../containers/main.jsx';
-import Home from '../containers/home.jsx';
-import Lists from '../containers/lists.jsx';
-import Transitions from '../containers/transitions.jsx';
+
+import {
+  Main,
+  Home,
+  Lists,
+  Transitions,
+  Forms
+} from '../containers';
 import {
   TransitionsScreenA,
   TransitionsScreenB,
   TransitionsScreenC,
   TransitionsScreenD,
-  TransitionsScreenE
+  TransitionsScreenE,
+  FormsRegular,
+  FormsAutoScroll
 } from '../components';
 
 const routes = (
@@ -29,6 +33,10 @@ const routes = (
           <Route path="/transitionsC" component={TransitionsScreenC} index={2} />
           <Route path="/transitionsD" component={TransitionsScreenD} index={3} />
           <Route path="/transitionsE" component={TransitionsScreenE} index={4} />
+        </Route>
+        <Route path="/forms" component={Forms}>
+          <Route path="/regular" component={FormsRegular} />
+          <Route path="/scroll" component={FormsAutoScroll} />
         </Route>
       </Route>
     </Router>

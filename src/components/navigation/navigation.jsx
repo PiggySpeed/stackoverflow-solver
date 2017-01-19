@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export const NavigationButton = ({ name, to }) => (
-  <Link className="navigation-button" to={to} >
+  <Link className="navigation-button" to={to} activeStyle={{backgroundColor: '#A4C1FF'}} >
     <h4 className="navigation-button-text">{name}</h4>
   </Link>
 );

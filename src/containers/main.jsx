@@ -6,9 +6,6 @@ import Navigation, { NavigationButton } from '../components/navigation/navigatio
 import ContentWindow from '../components/contentwindow/contentwindow.jsx';
 
 class MainContainer extends Component {
-  static propTypes = {
-
-  };
   render() {
     return(
       <div className="full-size">
@@ -16,6 +13,7 @@ class MainContainer extends Component {
           <NavigationButton name="Home" to="/" />
           <NavigationButton name="#1: Lists" to="/lists" />
           <NavigationButton name="#2: Transitions" to="/transitions" />
+          <NavigationButton name="#3: Forms" to="/forms" />
         </Navigation>
         <ContentWindow>
           {this.props.children}
@@ -31,5 +29,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return { }
 };
-const Main = connect(mapStateToProps, mapDispatchToProps)(MainContainer);
-export default Main;
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

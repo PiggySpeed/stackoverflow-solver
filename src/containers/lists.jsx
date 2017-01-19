@@ -168,5 +168,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-const Lists = connect(mapStateToProps, mapDispatchToProps)(ListContainer);
-export default Lists;
+export default connect(mapStateToProps, mapDispatchToProps)(ListContainer);

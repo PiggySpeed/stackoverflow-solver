@@ -3,13 +3,11 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 class HomeContainer extends Component {
-  static propTypes = {
-
-  };
   render() {
     return(
       <div>
-
+        <h1>Home Screen</h1>
+        <p>This codebase is used to develop solutions to specific ui issues.</p>
       </div>
     );
   }
@@ -21,5 +19,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return { }
 };
-const Home = connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

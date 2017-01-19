@@ -15,9 +15,12 @@ class TransitionsContainer extends Component {
       <div style={{display: 'flex', flex: 1}}>
         <TransitionsNav />
 
-        <SlideTransition pathname={pathname}>
-          {children}
-        </SlideTransition>
+        { children
+          ? <SlideTransition pathname={pathname}>
+            {children}
+            </SlideTransition>
+          : <h1>Click on a route</h1>
+        }
       </div>
     );
   }
@@ -29,5 +32,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return { }
 };
-const Transitions = connect(mapStateToProps, mapDispatchToProps)(TransitionsContainer);
-export default Transitions;
+export default connect(mapStateToProps, mapDispatchToProps)(TransitionsContainer);

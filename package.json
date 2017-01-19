@@ -1,7 +1,7 @@
 {
   "name": "testing-grounds",
   "version": "1.0.0",
-  "description": "a place for me to help solve stackoverflow questions",
+  "description": "testing code",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --watch --inline --progress"
@@ -11,6 +11,7 @@
   "dependencies": {
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
+    "radium": "^0.18.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-plugin-webpack-loaders": "^0.4.0",
     "babel-preset-es2015": "^6.18.0",
@@ -41,6 +43,7 @@
       "stage-0"
     ],
     "plugins": [
+      "transform-decorators-legacy",
       "transform-object-rest-spread"
     ]
   }
