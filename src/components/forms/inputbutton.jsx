@@ -30,6 +30,7 @@ const styles = {
     backgroundColor: '#FFFFFF',
     border: '2px solid #C3C3C3',
     borderRadius: '8px 0 0 8px',
+    transition: '0.25s',
     padding: 8,
     ':hover': {
       borderColor: '#A4C1FF',
