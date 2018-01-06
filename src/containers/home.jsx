@@ -1,6 +1,7 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import Todo from '../components/todo/todo.jsx';
 
 class HomeContainer extends Component {
   render() {
@@ -8,6 +9,9 @@ class HomeContainer extends Component {
       <div>
         <h1>Home Screen</h1>
         <p>This codebase is used to develop solutions to specific ui issues.</p>
+        <br/>
+        <br/>
+        <Todo />
       </div>
     );
   }
