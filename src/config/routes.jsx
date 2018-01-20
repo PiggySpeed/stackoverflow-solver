@@ -18,7 +18,8 @@ import {
   TransitionsScreenD,
   TransitionsScreenE,
   FormsRegular,
-  FormsAutoScroll
+  FormsAutoScroll,
+  FormsAutoSuggest
 } from '../components';
 
 const routes = (
@@ -37,6 +38,7 @@ const routes = (
         <Route path="/forms" component={Forms}>
           <Route path="/regular" component={FormsRegular} />
           <Route path="/scroll" component={FormsAutoScroll} />
+          <Route path="/suggest" component={FormsAutoSuggest} />
         </Route>
       </Route>
     </Router>

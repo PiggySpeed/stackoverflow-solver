@@ -44,6 +44,7 @@ export default class FormsNav extends Component {
       <div style={styles.container}>
         <NavButton name="Regular" to="/regular" />
         <NavButton name="Scroll" to="/scroll" />
+        <NavButton name="Suggest" to="/suggest" />
       </div>
     )
   }

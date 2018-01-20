@@ -33,12 +33,11 @@ var x = {
 //iter.next();
 //iter.next();
 
-console.log('one');
-setTimeout(function() {
-  console.log('two');
-}, 0);
-console.log('three');
-
 //var tree = 'tree';
 //tree[2] = 't';
 //console.log(tree);
+
+var bear = [2, 1];
+var tree = 'x';
+
+console.log(Object.prototype.toString.call(NaN));
