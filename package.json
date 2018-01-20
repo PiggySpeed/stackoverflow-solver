@@ -9,8 +9,10 @@
   "author": "PiggySpeed",
   "license": "ISC",
   "dependencies": {
+    "jszip": "^3.1.5",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
+    "node-fetch": "^1.7.3",
     "radium": "^0.18.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
