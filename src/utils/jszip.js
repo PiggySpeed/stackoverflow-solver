@@ -1,4 +1,5 @@
 //import JSZip from 'jszip';
+const fs = require('fs');
 const JSZip = require('jszip');
 const fetch = require('node-fetch');
 
@@ -40,29 +41,64 @@ const decodeTestJSON = data => {
 };
 
 const zipFile = name => {
-  encodeTestJSON('http://localhost:8080/src/utils/assets/test.json')
-    .then(res => { console.log('file encoded!', res); return res; })
-    .catch(err => console.warn(err));
+
+  function zippy1(data) {
+    const result = JSON.parse(Buffer.from(data, 'base64').toString());
+    console.log('result is ', result);
+    return result;
+  }
+
+  function saveAs(data, dirPath) {
+      if (!fs.existsSync(dirPath)){
+          fs.mkdirSync(dirPath);
+      }
+
+      //write the dataset with the given id onto file 'id.json'
+      return new Promise(function (fullfil, reject) {
+          fs.writeFile(dirPath, function (err){
+              if(err)
+                  reject(err);
+              fullfil();
+          });
+      })
+  }
+
+  function saveAs2(data) {
+      const zip = new JSZip();
 
 
+      // Add a file to the directory, in this case an image with data URI as contents
+      var file = zip.folder('courses');
 
+      file.file('out.zip', data, {base64: true});
+
+      // Generate the zip file asynchronously
+      zip.generateAsync({type:"base64"})
+          .then(function(content) {
+              // Force down of the Zip file
+              saveAs(content, "out")
+                  .then(err => console.warn(err));
+          })
+          .catch(err => console.warn(err));
+  }
+
+
+  function zippy2(data) {
+      const zip = new JSZip();
+      zip.folder('courses')
+          .file('TREE.json', data, {type: 'base64'});
+      const file = zip.generateAsync({ type: 'base64' });
+      return saveAs(file, 'out.zip');
+  }
+
+    encodeTestJSON('http://localhost:8080/src/utils/assets/test.json')
+      .then(res => { console.log('file encoded!', res); return res; }) // encode
+      // .then(res => zippy1(res)) //decode
+      .then(res => saveAs2(res))
+      .then(res => console.log('it is ', res))
+      // .then(res => zippy(res))
+      .catch(err => console.warn(err));
 };
 
-// zipFile('bear1');
+zipFile('bear1');
 
-
-const bear1 = new Promise((res, rej) => {
-  setTimeout(() => {console.log('tree1')}, 0);
-
-  res('tree2');
-});
-
-
-const bear2 = new Promise((res, rej) => {
-  setTimeout(() => {console.log('bear1')}, 0);
-
-  res('bear2');
-});
-
-Promise.resolve(bear1)
-  .then(res => console.log(res));
