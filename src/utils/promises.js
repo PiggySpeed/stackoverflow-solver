@@ -16,21 +16,28 @@ function countTo100() {
 function bear() {
   return new Promise(function(res, rej) {
 
-    console.log('starting promise');
+    // console.log('starting promise');
 
     asyncOperation(function() {
-      countTo100();
-      rej('noooooo');
-      console.log('hello');
+      // countTo100();
+      // rej('noooooo');
+      // console.log('hello');
       // res('success2');
     });
 
-    // if (countTo100()) {
-    //   res('success');
-    // } else {
-    //   rej('errrorrr!!!');
-    // }
+    if (true) {
+      res('success');
+    } else {
+      rej('errrorrr!!!');
+    }
   });
+}
+
+function bear2() {
+  const tree = [bear(), bear(), bear()];
+  return Promise.all(tree)
+    .then(() => { return Promise.resolve({ tree: 'bear' })})
+    .catch(err => err);
 }
 
 function returnHi(val) {
@@ -38,7 +45,8 @@ function returnHi(val) {
   return 'hi';
 }
 
-bear()
-  .then(val => returnHi(val))
-  .then(val2 => console.log(val2))
+console.log(bear().tree);
+
+bear2()
+  .then(val => console.log(val))
   .catch(err => console.log(err));
