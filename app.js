@@ -24,7 +24,7 @@ app.post('/send-sms', (req, res) => {
     },
     (err, message) => {
         if (err) {
-            req.status(400).send("Error has occurred, text message has not been sent");
+            req.status(400).send(`Error has occurred, text message has not been sent ${err}`);
         } else {
             console.log(`Successfully sent text: ${message.sid}`);
             req.status(200).send("Message has been successfully sent");
