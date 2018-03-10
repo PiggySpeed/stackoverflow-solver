@@ -10,8 +10,8 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('src-node-test'));
 
-// const PORT = process.env.PORT;
-const PORT = 3000;
+const PORT = process.env.PORT;
+// const PORT = 3000;
 
 app.post('/send-sms', (req, res) => {
     let phoneNumber = req.body.phoneNumber;
