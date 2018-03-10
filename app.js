@@ -10,6 +10,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('src-node-test'));
 
+// const PORT = process.env.PORT;
+const PORT = 3000;
+
 app.post('/send-sms', (req, res) => {
     let phoneNumber = req.body.phoneNumber;
     let message = req.body.message;
@@ -33,11 +36,7 @@ app.get('/', (req, res) => {
     res.send("index.html");
 });
 
-app.get('/send-sms', () => {
-    console.log("sendinggggg");
-});
-
-app.listen(process.env.PORT, () => {
-    console.log(`listening at ${process.env.PORT}`);
+app.listen(PORT, () => {
+    console.log(`listening at ${PORT}`);
 });
 
