@@ -8,8 +8,22 @@ const fetch = require('node-fetch');
 // }
 
 
+function saveAs(data, dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath);
+  }
 
-const encodeTestJSON = file => {
+  //write the dataset with the given id onto file 'id.json'
+  return new Promise(function (fullfil, reject) {
+    fs.writeFile(dirPath, function (err) {
+      if (err)
+        reject(err);
+      fullfil();
+    });
+  })
+}
+
+const encodeTestJSON = () => {
   return new Promise((resolve, reject) => {
     const header = { 'Content-Type': 'application/json' };
 
@@ -18,87 +32,89 @@ const encodeTestJSON = file => {
       headers: header
     };
 
-    fetch(file, fetchArgs)
+    fetch('http://localhost:8080/src/utils/assets/test.json', fetchArgs)
       .then(res => res.json())                          // retrieve json
       .then(res => JSON.stringify(res))                 // stringify
-      .then(res => Buffer.from(res).toString('base64')) // encode in base64
       .then(res => resolve(res))
       .catch(err => reject(err));
   });
 };
 
-const decodeTestJSON = data => {
-  return new Promise((res, rej) => {
-    const result = JSON.parse(Buffer.from(data, 'base64').toString());
+const encodeTestZip = json => {
+  const zip = new JSZip();
+  zip.file('Hello.json', json); // create test zip file
 
-    if (!!result) {
-      res(result);
-    } else {
-      rej("error error");
+  const options = {
+    type: 'base64',
+    compression: 'DEFLATE',
+    compressionOptions: {
+      level: 3
     }
+  };
 
-  })
+  return zip.generateAsync(options);
 };
+
+const decodeTestZip = data => {
+  // take in base64 zip, and decodes and reads the contents
+  const zip = new JSZip();
+  return zip.loadAsync(data, { base64: true });
+};
+
+const readTestZip = zipFile => {
+  // const zip = new JSZip();
+  // console.log(file.files['Hello.json']);
+  return zipFile.file('Hello.json').async('text');
+};
+
+const readTestJSON = data => {
+  const data2 = JSON.parse(data);
+  data2.tree = 'haeeeeee';
+  return data2;
+};
+
+// const readTestZipContents = data => {
+//   console.log(data);
+// };
 
 const zipFile = name => {
-
-  function zippy1(data) {
-    const result = JSON.parse(Buffer.from(data, 'base64').toString());
-    console.log('result is ', result);
-    return result;
-  }
-
   function saveAs(data, dirPath) {
-      if (!fs.existsSync(dirPath)){
-          fs.mkdirSync(dirPath);
-      }
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath);
+    }
 
-      //write the dataset with the given id onto file 'id.json'
-      return new Promise(function (fullfil, reject) {
-          fs.writeFile(dirPath, function (err){
-              if(err)
-                  reject(err);
-              fullfil();
-          });
-      })
+    //write the dataset with the given id onto file 'id.json'
+    return new Promise(function (fullfil, reject) {
+      fs.writeFile(dirPath, function (err) {
+        if (err)
+          reject(err);
+        fullfil();
+      });
+    })
   }
 
-  function saveAs2(data) {
-      const zip = new JSZip();
+  encodeTestJSON() // convert JS object to json
+    .then(encodeTestZip) // put json in folder, zip the folder
+    .then(decodeTestZip) // decode zip folder
+    .then(readTestZip) // read zip folder, load contents+
+    .then(readTestJSON) // read json contents
+    .then(logAndReturn)
+    .catch(err => console.warn(err));
 
-
-      // Add a file to the directory, in this case an image with data URI as contents
-      var file = zip.folder('courses');
-
-      file.file('out.zip', data, {base64: true});
-
-      // Generate the zip file asynchronously
-      zip.generateAsync({type:"base64"})
-          .then(function(content) {
-              // Force down of the Zip file
-              saveAs(content, "out")
-                  .then(err => console.warn(err));
-          })
-          .catch(err => console.warn(err));
-  }
-
-
-  function zippy2(data) {
-      const zip = new JSZip();
-      zip.folder('courses')
-          .file('TREE.json', data, {type: 'base64'});
-      const file = zip.generateAsync({ type: 'base64' });
-      return saveAs(file, 'out.zip');
-  }
-
-    encodeTestJSON('http://localhost:8080/src/utils/assets/test.json')
-      .then(res => { console.log('file encoded!', res); return res; }) // encode
-      // .then(res => zippy1(res)) //decode
-      .then(res => saveAs2(res))
-      .then(res => console.log('it is ', res))
-      // .then(res => zippy(res))
-      .catch(err => console.warn(err));
+    // encodeTestJSON('http://localhost:8080/src/utils/assets/test.json')
+    //   .then(logAndReturn)
+    //   .then(encodeTestZip) // encoded zip file in base64
+      // .then(loadTestZip)
+      // .then(logAndReturn)
+      // .then(readTestZip)
+      // .then(logAndReturn)
+      // .catch(err => console.warn(err));
 };
+
+function logAndReturn(data) {
+  console.log('LOGGING >>>>', data);
+  return data;
+}
 
 zipFile('bear1');
 
