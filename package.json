@@ -2,13 +2,14 @@
   "name": "testing-grounds",
   "version": "1.0.0",
   "description": "testing code",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --hot --watch --inline --progress"
   },
   "author": "PiggySpeed",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.2",
     "jszip": "^3.1.5",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
