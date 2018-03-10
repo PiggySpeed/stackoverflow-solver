@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Node Test</title>
+  <link href="./index.css" rel="stylesheet" rel="stylesheet">
+</head>
+<body>
+  <form id="sms-form" method="post" action="/send-sms">
+    <label>Phone Number
+      <input
+        id="phone-number"
+        name="phoneNumber"
+        type="text"
+        placeholder="1234567"
+      />
+    </label>
+    <label>
+      <input
+          id="message"
+          name="message"
+          type="text"
+          placeholder="text message body"
+      />
+    </label>
+    <button id="post">Submit</button>
+  </form>
+  <script src="./index.js"></script>
+</body>
+</html>
