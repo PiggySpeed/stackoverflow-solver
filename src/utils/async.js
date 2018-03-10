@@ -1,4 +1,8 @@
 
+
+
+
+
 function returnPromise(x) {
   return new Promise(function(res, rej) {
     setTimeout(function() {
@@ -12,6 +16,8 @@ function returnPromise(x) {
         rej('Error: async operation not successful');
       }
     }, 2000);
+    console.log('hello owrldlddd');
+  
   })
 }
 
