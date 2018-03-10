@@ -4,6 +4,7 @@
   "description": "testing code",
   "main": "app.js",
   "scripts": {
+    "start": "webpack-dev-server --hot --watch --inline --progress"
   },
   "author": "PiggySpeed",
   "license": "ISC",
