@@ -40,4 +40,33 @@ var x = {
 var bear = [2, 1];
 var tree = 'x';
 
-console.log(Object.prototype.toString.call(NaN));
+const one = {};
+const two = one;
+one["hey"] = "hello";
+// one.push("hello");
+// console.log(one);
+// console.log(two);
+
+// two.push("bear");
+two["penguin"] = "pig";
+// console.log(one);
+// console.log(two);
+// console.log(one === two);
+
+
+
+// console.log(Object.prototype.toString.call(NaN));
+
+
+// postfix/prefix
+let i = 0;
+console.log("value is: ", ++i); // variable incremented before assignment
+console.log("value is: ", i);
+
+i = 0;
+console.log("value is: ", i++); // variable incremented after assignment
+console.log("value is: ", i);
+
+
+
+

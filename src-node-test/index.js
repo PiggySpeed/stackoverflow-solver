@@ -9,6 +9,7 @@
         if (confirmation) {
             $submitBtn.disabled = true;
             $smsForm.submit();
+            console.log('pig1');
         }
     }
 })();
